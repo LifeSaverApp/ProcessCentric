@@ -43,8 +43,8 @@ public class ProcessCentric {
     public Response updateHP(LifeStatus ls) throws IOException {
 
         //Update measures of life status
-        String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/updateHP/1";
-        //String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/updateHP/1";
+        //String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/updateHP/1";
+        String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/updateHP/1";
         ClientConfig clientConfig = new ClientConfig();
         Client client = ClientBuilder.newClient(clientConfig);
 
@@ -64,8 +64,8 @@ public class ProcessCentric {
         }
 
         // Comparing the updated life status measures with the goals
-        String ENDPOINT2 = "http://10.218.200.214:5500/introsde/businessLogic/compare/"+ls.getMeasureName();
-        //String ENDPOINT2 = "https://businesslogic.herokuapp.com/introsde/businessLogic/compare/"+ls.getMeasureName();
+        //String ENDPOINT2 = "http://10.218.200.214:5500/introsde/businessLogic/compare/"+ls.getMeasureName();
+        String ENDPOINT2 = "https://businesslogic.herokuapp.com/introsde/businessLogic/compare/"+ls.getMeasureName();
         DefaultHttpClient client1 = new DefaultHttpClient();
         HttpGet request = new HttpGet(ENDPOINT2);
         HttpResponse response = client1.execute(request);
@@ -96,8 +96,8 @@ public class ProcessCentric {
         public Response updateGoal(Goal goal) throws IOException {
 
             //Update goal
-            String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/updateGoal";
-        	//String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/updateGoal";
+            //String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/updateGoal";
+        	String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/updateGoal";
             ClientConfig clientConfig = new ClientConfig();
             Client client = ClientBuilder.newClient(clientConfig);
 
@@ -127,8 +127,8 @@ public class ProcessCentric {
         @Path("/getQuote")
         public Response getQuote() throws ClientProtocolException, IOException {
 
-        	String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/getQuoteMotivation";
-        	//String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/getQuoteMotivation";
+        	//String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/getQuoteMotivation";
+        	String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/getQuoteMotivation";
 
         	DefaultHttpClient client = new DefaultHttpClient();
         	HttpGet request = new HttpGet(ENDPOINT);
@@ -157,8 +157,8 @@ public class ProcessCentric {
         @Path("/getQuote2")
         public Response getQuote2() throws ClientProtocolException, IOException {
 
-        	String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/getQuoteMotivation2";
-        	//String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/getQuoteMotivation2";
+        	//String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/getQuoteMotivation2";
+        	String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/getQuoteMotivation2";
         	DefaultHttpClient client = new DefaultHttpClient();
         	HttpGet request = new HttpGet(ENDPOINT);
         	HttpResponse response = client.execute(request);
