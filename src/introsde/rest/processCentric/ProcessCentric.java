@@ -186,8 +186,8 @@ public class ProcessCentric {
         @Path("/getPicUrl")
         public Response getPicUrl() throws ClientProtocolException, IOException {
 
-        	 String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/getPicMotivation";
-             //String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/getPicMotivation";
+        	 //String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/getPicMotivation";
+             String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/getPicMotivation";
         	DefaultHttpClient client = new DefaultHttpClient();
         	HttpGet request = new HttpGet(ENDPOINT);
         	HttpResponse response = client.execute(request);
