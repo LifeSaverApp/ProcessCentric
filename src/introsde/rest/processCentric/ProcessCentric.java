@@ -180,6 +180,35 @@ public class ProcessCentric {
         	return Response.status(204).build();
 
         }
+    
+    // Getting motivational picture from Storage -> Adapter (Instagram API)
+        @GET
+        @Path("/getPicUrl")
+        public Response getPicUrl() throws ClientProtocolException, IOException {
+
+        	 String ENDPOINT = "http://10.218.200.214:5900/introsde/storage/getPicMotivation";
+             //String ENDPOINT = "https://storageservices.herokuapp.com/introsde/storage/getPicMotivation";
+        	DefaultHttpClient client = new DefaultHttpClient();
+        	HttpGet request = new HttpGet(ENDPOINT);
+        	HttpResponse response = client.execute(request);
+
+        	BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+        	StringBuffer result = new StringBuffer();
+        	String line = "";
+        	while ((line = rd.readLine()) != null) {
+        	    result.append(line);
+        	}
+
+        	JSONObject o = new JSONObject(result.toString());
+
+        	if(response.getStatusLine().getStatusCode() == 200){
+        		return Response.ok(o.toString()).build();
+            }
+
+        	return Response.status(204).build();
+
+        }
 
 
     }
